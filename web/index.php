@@ -1,3 +1,15 @@
+<?php
+	// Avancement des milestones
+	$roadmap_1 = 0;
+	$roadmap_2 = 0;
+	$roadmap_3 = 0;
+	$roadmap_4 = 0;
+
+	// Prix
+	$free = 0;
+	$premium = 2;
+	$premium_plus = 5;
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,6 +19,8 @@
 		<link rel="stylesheet" type="text/css" href="public/css/index.css" />
 		<link rel="stylesheet" type="text/css" href="public/css/about.css" />
 		<link rel="stylesheet" type="text/css" href="public/css/features.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/roadmap.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/prices.css" />
 	</head>
 	
 	<body>
@@ -25,9 +39,6 @@
 		
 			// Page "Prix"
 			require_once("static/prices.html");
-		
-			// Page "Faire un don"
-			require_once("static/donate.html");
 		?>
 	</body>
 </html>

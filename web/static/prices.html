@@ -1,0 +1,48 @@
+<div id="prices">
+	<div class="title"><span>Prix</span></div>
+	
+	<div class="box" id="box_1" onclick="web.showRegisterPopup('free');">
+		<div class="icon"><span><img src="public/images/plan_free.png" /></span></div>
+		<div class="head"><span>"Moonwalker"<p>(<?= $free; ?>€ / mois)</p></span></div>
+		<div class="description"><span>Toujours la tête dans la lune, vous errez dans l'espace...</span></div>
+		<div class="features">
+			<span>
+				<p class="yes">✓ 5 Go d'espace de stockage</p>
+				<p class="yes">✓ Chiffrement de bout-en-bout avec clés RSA 4096 bits avec OpenPGP.js</p>
+				<p class="yes">✓ Accès aux applications de base</p>
+				<p class="no">⨯ Accès aux applications premium</p>
+				<p class="yes">✓ Réponse par mail sous 48h</p>
+			</span>
+		</div>
+	</div>
+	
+	<div class="box" id="box_2" onclick="web.showRegisterPopup('premium');">
+		<div class="icon"><span><img src="public/images/plan_premium.png" /></span></div>
+		<div class="head"><span>"Planetwalker"<p>(<?= $premium; ?>€ / mois)</p></span></div>
+		<div class="description"><span>Vous venez de trouver une planête habitable, quelle joie !</span></div>
+		<div class="features">
+			<span>
+				<p class="yes">✓ 15 Go d'espace de stockage</p>
+				<p class="yes">✓ Chiffrement de bout-en-bout avec clés RSA 4096 bits avec OpenPGP.js</p>
+				<p class="yes">✓ Accès aux applications de base</p>
+				<p class="yes">✓ Accès aux applications premium</p>
+				<p class="yes">✓ Réponse par mail sous 24h</p>
+			</span>
+		</div>
+	</div>
+	
+	<div class="box" id="box_3" onclick="web.showRegisterPopup('premium_plus');">
+		<div class="icon"><span><img src="public/images/plan_premium_plus.png" /></span></div>
+		<div class="head"><span>"Spacewalker"<p>(<?= $premium_plus; ?>€ / mois)</p></span></div>
+		<div class="description"><span>Cependant, l'Univers vous appelle et vous repartez...</span></div>
+		<div class="features">
+			<span>
+				<p class="yes">✓ 50 Go d'espace de stockage</p>
+				<p class="yes">✓ Chiffrement de bout-en-bout avec clés RSA 4096 bits avec OpenPGP.js</p>
+				<p class="yes">✓ Accès aux applications de base</p>
+				<p class="yes">✓ Accès aux applications premium</p>
+				<p class="yes">✓ Réponse par mail sous 24h</p>
+			</span>
+		</div>
+	</div>
+</div>
