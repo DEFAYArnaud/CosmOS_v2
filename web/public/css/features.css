@@ -1,0 +1,39 @@
+#features
+{
+	position: absolute;
+	top: 200%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	background: #e3f2fd;
+}
+
+#features table
+{
+	position: absolute;
+	top: 30%;
+	left: 10%;
+	width: 80%;
+	height: 45%;
+}
+
+#features table tr
+{
+	text-align: center;
+}
+
+#features table tr td
+{
+	width: calc(80vw / 3);
+}
+
+#features table .titles
+{
+	font-size: 3vh;
+}
+
+#features table img
+{
+	height: 8vh;
+}

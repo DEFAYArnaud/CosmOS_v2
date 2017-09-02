@@ -6,6 +6,7 @@
 		
 		<link rel="stylesheet" type="text/css" href="public/css/index.css" />
 		<link rel="stylesheet" type="text/css" href="public/css/about.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/features.css" />
 	</head>
 	
 	<body>
