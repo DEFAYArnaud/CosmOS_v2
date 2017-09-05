@@ -1,6 +1,6 @@
 <?php
 	// Avancement des milestones
-	$roadmap_1 = 0;
+	$roadmap_1 = 5;
 	$roadmap_2 = 0;
 	$roadmap_3 = 0;
 	$roadmap_4 = 0;
@@ -21,6 +21,18 @@
 		<link rel="stylesheet" type="text/css" href="public/css/features.css" />
 		<link rel="stylesheet" type="text/css" href="public/css/roadmap.css" />
 		<link rel="stylesheet" type="text/css" href="public/css/prices.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/popup.css" />
+		
+		<link rel="icon" href="public/images/icon.png" />
+		
+		<script type="text/javascript" src="public/js/web.js"></script>
+		<script type="text/javascript" src="public/js/min.js"></script>
+		
+		<!-- OpenPGP.js -->
+		<script type="text/javascript" src="public/js/openpgp.min.js"></script>
+		
+		<!-- Paypal -->
+		<script type="text/javascript" src="https://www.paypalobjects.com/api/checkout.js"></script>
 	</head>
 	
 	<body>
@@ -39,6 +51,9 @@
 		
 			// Page "Prix"
 			require_once("static/prices.html");
+		
+			// Popups
+			require_once("static/popup.html");
 		?>
 	</body>
 </html>

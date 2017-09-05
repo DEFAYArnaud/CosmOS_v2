@@ -23,8 +23,6 @@ body
 	
 	background: url("../images/background.jpg");
 	background-size: cover;
-	
-	overflow-y: scroll;
 }
 
 a
