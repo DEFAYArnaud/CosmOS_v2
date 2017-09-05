@@ -1,0 +1,173 @@
+#prices
+{
+	position: absolute;
+	top: 400%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+	background: #fff8e1;
+}
+
+#prices .box
+{
+	position: absolute;
+	top: 30%;
+	height: 55%;
+	width: 20%;
+	
+	background: #e5e5e5;
+	
+	border-radius: 5px;
+	
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	
+	cursor: pointer;
+}
+#prices .box:hover
+{
+	transform: scale(1.1);
+	
+	box-shadow: 0 0 5px black;
+}
+
+#prices .box .icon
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 15%;
+	
+	display: table;
+	
+	background: #2a2a2a;
+	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#prices .box .icon span
+{
+	display: table-cell;
+	vertical-align: middle;
+	
+	text-align: center;
+}
+
+#prices .box .icon span img
+{
+	height: 5vh;
+}
+
+#prices .box .head
+{
+	position: absolute;
+	top: 15%;
+	left: 0;
+	width: 100%;
+	height: 15%;
+	
+	display: table;
+	
+	background: #2a2a2a;
+}
+
+#prices .box .head span
+{
+	display: table-cell;
+	vertical-align: middle;
+	
+	text-align: center;
+	
+	color: white;
+	
+	font-size: 2.5vh;
+}
+
+#prices .box .head span p
+{
+	margin: 0;
+	
+	font-size: 1.7vh;
+	
+	color: #009688;
+}
+
+#prices .box .description
+{
+	position: absolute;
+	top: 30%;
+	left: 0;
+	width: 100%;
+	height: 15%;
+	
+	display: table;
+	
+	background: #b7b7b7;
+}
+
+#prices .box .description span
+{
+	display: table-cell;
+	vertical-align: middle;
+	
+	text-align: center;
+	
+	font-size: 2vh;
+}
+
+#prices .box .features
+{
+	position: absolute;
+	top: 45%;
+	left: 5%;
+	width: 90%;
+	height: 55%;
+	
+	display: table;
+}
+
+#prices .box .features span
+{
+	display: table-cell;
+	vertical-align: middle;
+	
+	text-align: justify;
+	
+	font-size: 1.8vh;
+}
+
+#prices .box .features span p
+{
+	margin: 1.5vh;
+}
+
+#prices .box .features span p.yes
+{
+	color: #1b5e20;
+}
+
+#prices .box .features span p.no
+{
+	color: #f44336;
+	
+	text-decoration: line-through;
+}
+
+#prices #box_1
+{
+	left: calc((100vw - 60vw)/4)
+}
+
+#prices #box_2
+{
+	left: calc(2*(100vw - 60vw)/4 + 20vw)
+}
+
+#prices #box_3
+{
+	left: calc(3*(100vw - 60vw)/4 + 2*20vw)
+}
