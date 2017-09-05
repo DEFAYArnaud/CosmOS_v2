@@ -5,10 +5,9 @@
 
 	if(isset($_POST['id']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['plan']) && $_POST['step'] == 1)
 	{
-		$req = $bdd->prepare("SELECT * FROM users WHERE mail = ? AND name = ?");
+		$req = $bdd->prepare("SELECT * FROM users WHERE mail = ?");
 		$req->execute(array(
-			$_POST['mail'],
-			$_POST['id']
+			$_POST['mail']
 		));
 		
 		if(count($req->fetchAll()) == 0)

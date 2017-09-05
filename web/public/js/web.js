@@ -52,10 +52,10 @@ var web =
 		$("#popup .title span").innerHTML = "S'inscrire";
 		
 		$("#popup .content span").innerHTML = `
-			<input type="text" placeholder="Nom de compte..." value="Romain" />
-			<input type="text" placeholder="Adresse mail..." value="romain.claveau@protonmail.ch" />
-			<input type="password" placeholder="Mot de passe..." value="coucou" />
-			<input type="password" placeholder="Phrase secrète..." value="coucou" />
+			<input type="text" placeholder="Nom de compte..." />
+			<input type="text" placeholder="Adresse mail..." />
+			<input type="password" placeholder="Mot de passe..." />
+			<input type="password" placeholder="Phrase secrète..." />
 			<select>
 				<option value='free' name='Moonwalker' selected>Moonwalker (0€ / mois)</option>
 				<option value='premium' name='Planetwalker'>Planetwalker (2€ / mois)</option>
@@ -74,6 +74,22 @@ var web =
 	showForgotPopup: function()
 	{
 		document.location.href = "#index";
+		
+		web.popup.open();
+		
+		$("#popup .content span").style.textAlign = "center";
+		
+		$("#popup .title span").innerHTML = "Mot de passe oublié";
+		
+		$("#popup .content span").innerHTML = `
+			<input type="text" placeholder="Adresse mail..." />
+			<p></p>
+		`;
+		
+		$("#popup .buttons span").innerHTML = `
+			<input type="button" value="Envoyer le mail" onclick="web.actions.forgotPassword();" />
+			<input type="button" value="Fermer" onclick="web.popup.close();" />
+		`;
 	},
 	
 	actions:
@@ -104,6 +120,29 @@ var web =
 					else
 					{
 						$("#popup p").innerHTML = "Une erreur s'est produite lors de l'authentification.";
+					}
+				}
+			});
+		},
+		
+		forgotPassword: function()
+		{
+			var mail = $("#popup .content input").value;
+			
+			ajax({
+				type: "POST",
+				url: "core/forgotPassword.php",
+				async: true,
+				params: `mail=${mail}`,
+				complete: function(xhr, event)
+				{
+					if(xhr.responseText == "@ok")
+					{
+						$("#popup p").innerHTML = "Mail envoyé avec succès ! Vous le receverez d'ici quelques instants. Si vous ne le voyez pas dans votre boite de réception, pensez à vérifiez dans vos spams.";
+					}
+					else
+					{
+						$("#popup p").innerHTML = "Une erreur s'est produite lors de l'envoi du mail.";
 					}
 				}
 			});
