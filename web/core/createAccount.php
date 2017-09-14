@@ -47,6 +47,18 @@
 				"storage" => $storages[$_SESSION['temp_session']['plan']]
 			);
 			
+			// On créé les dossiers utilisateur
+			mkdir("../../app/storage/{$token}/");
+			mkdir("../../app/storage/{$token}/files/");
+			mkdir("../../app/storage/{$token}/workspace/");
+			
+			// On créé les fichiers utilisateur
+			file_put_contents("../../app/storage/{$token}/workspace/design.json", json_encode(array(
+				"background" => "bg5.jpg",
+				"header" => "#3f51b5",
+				"window_size" => "big"
+			)));
+			
 			unset($_SESSION['temp_session']);
 			
 			exit("@ok");

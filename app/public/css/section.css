@@ -1,0 +1,8 @@
+section
+{
+	position: absolute;
+	top: 10%;
+	left: 7vh;
+	width: calc(100% - 7vh);
+	height: 90%;
+}

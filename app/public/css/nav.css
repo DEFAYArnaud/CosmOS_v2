@@ -6,19 +6,13 @@ nav
 	width: 7vh;
 	height: 90%;
 	
-	background: rgba(0, 0, 0, 0.5);
-	
-	opacity: 0.3;
+	background: black;
 	
 	transition: all 0.3s ease;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	
 	display: table;
-}
-nav:hover
-{
-	opacity: 1;
 }
 
 nav div
