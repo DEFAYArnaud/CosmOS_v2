@@ -61,6 +61,11 @@ var API =
                 window.innerHTML = `<iframe src='applications/${id}/app.html'></iframe>`;
                 
                 $("section").appendChild(window);
+                
+                setTimeout(function(){
+                    window.style.opacity = 1;
+                    window.style.transform = "scale(1)";
+                }, 100);
             }
         }
 	}

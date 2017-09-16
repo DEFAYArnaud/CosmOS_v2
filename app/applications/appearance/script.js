@@ -31,6 +31,9 @@ var interact =
     
     close: function()
     {
-        parent.$("section").removeChild(parent.$("#app_appearance"));
+        parent.$("#app_appearance").style.opacity = "0";
+        parent.$("#app_appearance").style.transform = "scale(0)";
+        
+        setTimeout(function(){parent.$("section").removeChild(parent.$("#app_appearance"));}, 400);
     }
 };

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="script.js"></script>
+        
+        <script type="text/javascript" src="https://use.fontawesome.com/431c33e408.js"></script>
+		<script type="text/javascript" src="../../public/js/min.js"></script>
+		<script type="text/javascript" src="../../public/js/api.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <div id="title">
+                <span><i class="fa fa-server"></i> Gestion de l'espace de stockage</span>
+            </div>
+            
+            <div id="close"><span onclick="interact.close();"><i class="fa fa-close"></i></span></div>
+        </header>
+        
+        <section>
+            <div id="description"><span>Gérez votre espace de stockage</span></div>
+            <div id="bar_area">
+                <div id="current_storage"><span>Chargement...</span></div>
+                <div id="bar_storage">
+                    <div id="current_bar" style="width: 0%;">
+                        <span style="width: 0%;background: #42A5F5;" class="area_docs"></span>
+                        <span style="width: 0%;background: #EF5350;" class="area_images"></span>
+                        <span style="width: 0%;background: #AB47BC;" class="area_videos"></span>
+                        <span style="width: 0%;background: #26A69A;" class="area_music"></span>
+                        <span style="width: 0%;background: #FFEE58;" class="area_others"></span>
+                    </div>
+                </div>
+                <div id="max_storage"><span>Chargement...</span></div>
+            </div>
+            <div id="legend">
+                <span><p style="background: #42A5F5;" class="box"></p><br />Documents<br /><i>Chargement...</i></span>
+                <span><p style="background: #EF5350;" class="box"></p><br />Images<br /><i>Chargement...</i></span>
+                <span><p style="background: #AB47BC;" class="box"></p><br />Vidéos<br /><i>Chargement...</i></span>
+                <span><p style="background: #26A69A;" class="box"></p><br />Musiques<br /><i>Chargement...</i></span>
+                <span><p style="background: #FFEE58;" class="box"></p><br />Autres<br /><i>Chargement...</i></span>
+            </div>
+            <div id="plan"><span>Vous disposez pour le moment d'un plan <b></b>. <a href="#" onclick="interact.view_plans();">Envie de changer de plan ?</a></span></div>
+        </section>
+        
+        <script type="text/javascript">
+            window.onload = function()
+            {
+                interact._init();
+            }
+        </script>
+    </body>
+</html>

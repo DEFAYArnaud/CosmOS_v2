@@ -9,6 +9,11 @@
 	background: rgba(255, 255, 255, 1);
     
     box-shadow: 0 0 2px black;
+    
+    transition: all 0.25s ease-out;
+    
+    opacity: 0;
+    transform: scale(0);
 }
 
 .window iframe

@@ -1,0 +1,105 @@
+@font-face 
+{
+    font-family: 'Open Sans Condensed';
+    src: url('../../public/fonts/OpenSansCondensed-Light.ttf');
+}
+
+*
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    
+    background: #2196F3;
+    
+    color: white;
+}
+
+header #title
+{
+    position: absolute;
+    top: 0;
+    left: 2.5vw;
+    width: 50%;
+    height: 100%;
+    
+    display: table;
+    
+    font-size: 3vh;
+}
+
+header #title span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: left;
+}
+
+header #close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5vw;
+    height: 100%;
+    
+    display: table;
+}
+
+header #close span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 4vh;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+}
+header #close span:hover
+{
+    background: #0D47A1;
+}
+
+section
+{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+
+section #description
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    
+    display: table;
+}
+
+section #description span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 5vh;
+}

@@ -13,7 +13,7 @@
 				"premium_plus" => 50
 			);
 			
-			$token = hash("sha512", microtime(true));
+			$token = sha1(microtime(true));
 			
 			// On insère le compte dans la base de données
 			$req = $bdd->prepare("INSERT INTO users (id, token, name, mail, password, check_passphrase, plan, storage_size, paymentID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");

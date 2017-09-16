@@ -29,5 +29,14 @@
         {
             self::Sub()::getContentDesign();
         }
+        
+        public static function initStorage()
+        {
+            $informations = self::Sub()::getStorageInformations();
+            
+            $quota = self::Sub()::getFilesInformations();
+            
+            exit(json_encode(self::Sub()::computePercents($informations, $quota)));
+        }
     }
 ?>

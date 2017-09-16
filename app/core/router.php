@@ -15,6 +15,7 @@
 			"sys/changeHeaderColor",
 			"sys/changeBackground",
 			"sys/initDesign",
+			"sys/initStorage"
 		);
 		
 		$module = $_POST['module'];

@@ -8,7 +8,7 @@
             $db_config = array(
                 "SGBD" => "mysql",
                 "HOST" => "localhost",
-                "DB_NAME" => "sas",
+                "DB_NAME" => "cosmos",
                 "USER" => "root",
                 "PASSWORD" => "",
                 "CHARSET" => "utf8",

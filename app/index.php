@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if(!isset($_SESSION['session']) && !empty($_SESSION['session'])) die("Accès refusé");
+	if(!isset($_SESSION['session']) || empty($_SESSION['session'])) die("Accès refusé");
 ?>
 <!DOCTYPE html>
 <html>
