@@ -94,7 +94,9 @@
         public static function computePercents($informations, $quota)
         {
             $max_storage = $informations["storage_size"] * pow(2, 30); // ... Gio
-            $current_size = $quota["document"] + $quota["image"] + $quota["audio"] + $quota["video"] + $quota["other"];
+            $current_size = ($quota["document"] + $quota["image"] + $quota["audio"] + $quota["video"] + $quota["other"]);
+            
+            if($current_size == 0) $current_size = 1;
             
             $current_percent = floor($current_size * 100 / $max_storage);
             
@@ -112,6 +114,74 @@
                 "percents" => $percents,
                 "current_storage" => $current_size
             );
+        }
+        
+        public static function initAccount()
+        {
+            return json_encode(self::bdd()->_request("SELECT name,mail FROM users WHERE token = ?", array(TOKEN)));
+        }
+        
+        public static function saveInformations($nb, $value)
+        {
+            switch($nb)
+            {
+                case 0:
+                    self::bdd()->_request("UPDATE users SET name = ? WHERE token = ?", array($value, TOKEN));
+                    $_SESSION['session']['name'] = $value;
+                    break;
+                    
+                case 1:
+                    self::bdd()->_request("UPDATE users SET mail = ? WHERE token = ?", array($value, TOKEN));
+                    $_SESSION['session']['mail'] = $value;
+                    break;
+                    
+                case 2:
+                    self::bdd()->_request("UPDATE users SET password = ? WHERE token = ?", array(hash("sha512", $value), TOKEN));
+                    break;
+                    
+                default:
+                    exit();
+                    break;
+            }
+            
+            exit("@ok");
+        }
+        
+        public static function savePrivateKey($privKey)
+        {
+            self::bdd()->_request("UPDATE rsa_keys SET privKey = ? WHERE user_id = ?", array($privKey, TOKEN));
+            
+            exit("@ok");
+        }
+        
+        public static function deleteAccount()
+        {
+            // Suppression du compte
+            self::bdd()->_request("DELETE FROM users WHERE token = ?", array(TOKEN));
+            
+            // Suppression des clés
+            self::bdd()->_request("DELETE FROM rsa_keys WHERE user_id = ?", array(TOKEN));
+            
+            // Suppression du fichier utilisateur
+            unlink("../storage/".TOKEN."/workspace/design.json");
+            
+            // Suppression des fichiers de l'utilisateur
+            $directory = '../storage/'.TOKEN.'/files/';
+
+            $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
+
+            while($it->valid())
+            {
+                if(!$it->isDot()) 
+                {
+                    unlink('../storage/'.TOKEN.'/files/' . $it->getSubPathName());
+                }
+
+                $it->next();
+            }
+            
+            // Suppression de la session
+            self::logout();
         }
     }
 ?>

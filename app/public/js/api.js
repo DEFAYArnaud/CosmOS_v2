@@ -41,6 +41,8 @@ var API =
 					{
 						if(xhr.responseText.indexOf("@ok") != -1)
 						{
+                            localStorage.clear();
+                         
 							document.location.href = "../web/index.php";
 						}
 					}

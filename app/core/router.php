@@ -15,7 +15,11 @@
 			"sys/changeHeaderColor",
 			"sys/changeBackground",
 			"sys/initDesign",
-			"sys/initStorage"
+			"sys/initStorage",
+            "sys/initAccount",
+            "sys/saveInformations",
+            "sys/savePrivateKey",
+            "sys/deleteAccount",
 		);
 		
 		$module = $_POST['module'];
