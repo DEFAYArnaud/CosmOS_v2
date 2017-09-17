@@ -1,0 +1,28 @@
+@font-face 
+{
+    font-family: 'Open Sans Condensed';
+    src: url('../fonts/OpenSansCondensed-Light.ttf');
+}
+
+html
+{
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	
+	scroll-behavior: smooth;
+	-webkit-scroll-behavior: smooth;
+	-moz-scroll-behavior: smooth;
+}
+
+body
+{
+	font-size: 2vh;
+	
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+i.fa
+{
+	font-weight: normal;
+}

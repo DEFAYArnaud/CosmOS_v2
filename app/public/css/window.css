@@ -1,0 +1,30 @@
+.window
+{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+	
+	background: rgba(255, 255, 255, 1);
+    
+    box-shadow: 0 0 2px black;
+    
+    transition: all 0.25s ease-out;
+    
+    opacity: 0;
+    transform: scale(0);
+}
+
+.window iframe
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    border: none;
+    padding: none;
+    margin: 0;
+}

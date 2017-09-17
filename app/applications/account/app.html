@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="script.js"></script>
+        
+        <script type="text/javascript" src="https://use.fontawesome.com/431c33e408.js"></script>
+		<script type="text/javascript" src="../../public/js/min.js"></script>
+		<script type="text/javascript" src="../../public/js/openpgp.min.js"></script>
+		<script type="text/javascript" src="../../public/js/filesaver.min.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <div id="title">
+                <span><i class="fa fa-user"></i> Gestion de mon compte</span>
+            </div>
+            
+            <div id="close"><span onclick="interact.close();"><i class="fa fa-close"></i></span></div>
+        </header>
+        
+        <section>
+            <div id="description"><span>Gérez votre compte et vos informations personnelles</span></div>
+            
+            <div id="informations">
+                <span>
+                    <p>Pseudonyme <i class="fa fa-save" onclick="interact.save(0);"></i> <input type="text" placeholder="Pseudonyme..." /></p>
+                    <p>Adresse e-mail <i class="fa fa-save"  onclick="interact.save(1);"></i> <input type="mail" placeholder="Adresse e-mail..." /></p>
+                </span>
+                <span>
+                    <p>Mot de passe <i class="fa fa-save"  onclick="interact.save(2);"></i> <input type="password" placeholder="Mot de passe..." /></p>
+                    <p>Phrase secrète <i class="fa fa-save"  onclick="interact.savePassphrase();"></i> <input type="password" placeholder="Phrase secrète..." /></p>
+                </span>
+            </div>
+            
+            <div id="buttons">
+                <span>
+                    <input class="btn btn-classic" type="button" value="Télécharger ma clé publique" onclick="interact.download(0);" />
+                    <input class="btn btn-classic" type="button" value="Télécharger ma clé privée" onclick="interact.download(1);" />
+                    <input class="btn btn-danger" type="button" value="Supprimer mon compte" onclick="interact.deleteAccount();" />
+                </span>
+            </div>
+        </section>
+        
+        <script type="text/javascript">
+            window.onload = function()
+            {
+                interact._init();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+section
+{
+	position: absolute;
+	top: 10%;
+	left: 7vh;
+	width: calc(100% - 7vh);
+	height: 90%;
+    
+    background: url("../backgrounds/bg5.jpg");
+	background-size: cover;
+}

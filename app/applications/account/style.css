@@ -1,0 +1,226 @@
+@font-face 
+{
+    font-family: 'Open Sans Condensed';
+    src: url('../../public/fonts/OpenSansCondensed-Light.ttf');
+}
+
+*
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    
+    background: #2196F3;
+    
+    color: white;
+}
+
+header #title
+{
+    position: absolute;
+    top: 0;
+    left: 2.5vw;
+    width: 50%;
+    height: 100%;
+    
+    display: table;
+    
+    font-size: 3vh;
+}
+
+header #title span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: left;
+}
+
+header #close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5vw;
+    height: 100%;
+    
+    display: table;
+}
+
+header #close span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 4vh;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+}
+header #close span:hover
+{
+    background: #0D47A1;
+}
+
+section
+{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+
+section #description
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    
+    display: table;
+}
+
+section #description span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 5vh;
+}
+
+section #informations
+{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    
+    display: table;
+}
+
+section #informations span
+{
+    display: table-row;
+}
+
+section #informations span p
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 3vh;
+}
+
+section #informations span p input
+{
+    border: none;
+    border-bottom: 1px solid black;
+    
+    padding-left: 1vw;
+    
+    width: 90%;
+    height: 4vh;
+    
+    font-size: 2.5vh;
+    
+    margin-top: 2vh;
+}
+
+section #informations span p .fa
+{
+    color: #009688;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    
+    margin-left: 5vw;
+}
+section #informations span p .fa:hover
+{
+    color: #004D40;
+}
+
+section #buttons
+{
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    
+    display: table;
+}
+
+section #buttons span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+}
+
+section #buttons span .btn
+{
+    border: none;
+    border-radius: 5px;
+    
+    width: 15vw;
+    height: 6vh;
+    
+    margin-right: 2.5vw;
+    
+    font-size: 2.5vh;
+    
+    cursor: pointer;
+}
+
+section #buttons span .btn:last-child
+{
+    margin-right: 0;
+}
+
+section #buttons span .btn-danger
+{
+    background: #FFEBEE;
+    color: #F44336;
+    
+    transition: all 0.3s ease;
+}
+section #buttons span .btn-danger:hover
+{
+    background: #F44336;
+    color: #FFEBEE;
+}
+
+section #buttons span .btn-classic
+{
+    background: #E8EAF6;
+    color: #3F51B5;
+    
+    transition: all 0.3s ease;
+}
+section #buttons span .btn-classic:hover
+{
+    background: #3F51B5;
+    color: #E8EAF6;
+}
