@@ -1,0 +1,338 @@
+@font-face 
+{
+    font-family: 'Open Sans Condensed';
+    src: url('../../public/fonts/OpenSansCondensed-Light.ttf');
+}
+
+*
+{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    
+    background: #3F51B5;
+    
+    color: white;
+}
+
+header #title
+{
+    position: absolute;
+    top: 0;
+    left: 2.5vw;
+    width: 50%;
+    height: 100%;
+    
+    display: table;
+    
+    font-size: 3vh;
+}
+
+header #title span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: left;
+}
+
+header #close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5vw;
+    height: 100%;
+    
+    display: table;
+}
+
+header #close span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 4vh;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+}
+header #close span:hover
+{
+    background: #1A237E;
+}
+
+section
+{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+
+section #toolbar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    
+    background: #e0e0e0;
+}
+
+section #toolbar #nav_area
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 50%;
+    height: 100%;
+    
+    display: table;
+}
+
+section #toolbar #nav_area span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+}
+
+section #toolbar #nav_area .dir
+{
+    width: 8vw;
+    
+    font-size: 2.5vh;
+    
+    border-bottom: 3px solid #FF5722;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+section #toolbar #nav_area .dir:hover
+{
+    border-bottom: 3px solid #3F51B5;
+    
+    background: #E8EAF6;
+}
+
+section #toolbar #nav_area .sep
+{
+    width: 3vw;
+}
+
+section #toolbar #actions_area
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 50%;
+    height: 100%;
+    
+    display: table;
+}
+
+section #toolbar #actions_area span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    width: 5vw;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+section #toolbar #actions_area span:hover
+{
+    background: #E8EAF6;
+}
+
+section #toolbar #actions_area span img
+{
+    height: 5vh;
+}
+
+section #transferts_bubble
+{
+    position: absolute;
+    bottom: calc(1vw);
+    right: 1vw;
+    
+    height: 10vh;
+    width: 10vh;
+    
+    background: #2196F3;
+    
+    border-radius: 50%;
+    
+    cursor: pointer;
+    
+    display: table;
+    
+    transition: all 0.3s ease;
+}
+section #transferts_bubble:hover
+{
+    background: #0D47A1;
+}
+
+section #transferts_bubble span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+}
+
+section #transferts_bubble span img
+{
+    height: 4vh;
+}
+
+section #elements.box
+{
+    position: absolute;
+    top: 15%;
+    left: 0;
+    max-width: calc(100% - 2vw);
+    
+    padding-right: 1vw;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    
+    display: table;
+}
+
+section #elements.box span
+{
+    display: table-row;
+}
+
+section #elements.box span p
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    width: 10vw;
+    height: 20vh;
+    
+    font-size: 2.5vh;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    
+    border-radius: 5px;
+}
+section #elements.box span p.selected
+{
+    background: #FFEBEE;
+    
+    font-weight: bold;
+}
+section #elements.box span p:hover
+{
+    background: #E8EAF6;
+}
+
+section #elements.box span p img
+{
+    height: 6vh;
+}
+
+section #popup
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    height: 40%;
+    width: 40%;
+    
+    background: #dcdcdc;
+    
+    border-radius: 5px;
+    
+    box-shadow: 0 0 2px inset black;
+    
+    display: table;
+    
+    opacity: 0;
+    transform: scale(0);
+    
+    transition: all 0.3s ease;
+}
+
+section #popup span
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+}
+
+section #popup .close
+{
+    position: absolute;
+    top: 1vh;
+    right: 2vh;
+    
+    font-size: 3vh;
+    
+    margin: 0;
+    padding: 0;
+    
+    color: #F44336;
+    
+    cursor: pointer;
+}
+
+section #popup span input[type="text"]
+{
+    border: none;
+    
+    width: 15vw;
+    height: 4vh;
+    
+    padding-left: 1vw;
+    
+    border-radius: 5px;
+    
+    font-size: 2.5vh;
+}
+
+section #popup span input[type="button"]
+{
+    border: none;
+    
+    width: 10vw;
+    height: 6vh;
+    
+    border-radius: 5px;
+    
+    cursor: pointer;
+    
+    margin-left: 1vw;
+    
+    font-size: 2.5vh;
+}

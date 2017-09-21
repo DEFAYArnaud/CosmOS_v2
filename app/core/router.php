@@ -1,6 +1,8 @@
 <?php
 	session_start();
 
+    require_once("constantes.php");
+
 	header('Content-Type: text/html; charset=utf-8');
 
 	if(isset($_GET['module'])) $_POST['module'] = $_GET['module'];
@@ -20,6 +22,10 @@
             "sys/saveInformations",
             "sys/savePrivateKey",
             "sys/deleteAccount",
+            
+            "explorer/getCurrentDirectory",
+            "explorer/getElements",
+            "explorer/add_file",
 		);
 		
 		$module = $_POST['module'];

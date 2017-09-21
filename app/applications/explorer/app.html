@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="script.js"></script>
+        
+        <script type="text/javascript" src="https://use.fontawesome.com/431c33e408.js"></script>
+		<script type="text/javascript" src="../../public/js/min.js"></script>
+		<script type="text/javascript" src="../../public/js/openpgp.min.js"></script>
+		<script type="text/javascript" src="../../public/js/filesaver.min.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <div id="title">
+                <span><i class="fa fa-folder-open"></i> Explorateur de fichiers</span>
+            </div>
+            
+            <div id="close"><span onclick="interact.close();"><i class="fa fa-close"></i></span></div>
+        </header>
+        
+        <section>
+            <div id="toolbar">
+                <div id="nav_area">
+                </div>
+                
+                <div id="actions_area">
+                    <span><img src="images/actions/add_file.png" onclick="interact.actionsOnClick.add_file();" /></span>
+                    <span><img src="images/actions/add_folder.png" onclick="interact.actionsOnClick.add_folder();" /></span>
+                    <span><img src="images/actions/paste.png" onclick="interact.actionsAfterClick.paste();" /></span>
+                </div>
+            </div>
+                
+            <div id="transferts_bubble" onclick="interact.popup.triggerTransfertsPopup();"><span><img src="images/transferts.png" /></span></div>
+            
+            <div id="popup_transferts"></div>
+            
+            <div id="popup">
+                <p class="close" onclick="interact.closePopup();"><i class="fa fa-times"></i></p>
+                
+                <span class="content"></span>
+            </div>
+            
+            <div id="elements" class="box">
+            </div>
+        </section>
+        
+        <script type="text/javascript">
+            window.onload = function()
+            {
+                interact._init();
+            }
+        </script>
+    </body>
+</html>
