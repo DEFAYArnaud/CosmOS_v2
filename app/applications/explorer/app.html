@@ -22,8 +22,7 @@
         
         <section>
             <div id="toolbar">
-                <div id="nav_area">
-                </div>
+                <div id="nav_area"></div>
                 
                 <div id="actions_area">
                     <span><img src="images/actions/add_file.png" onclick="interact.actionsOnClick.add_file();" /></span>
@@ -36,14 +35,11 @@
             
             <div id="popup_transferts"></div>
             
-            <div id="popup">
-                <p class="close" onclick="interact.closePopup();"><i class="fa fa-times"></i></p>
-                
-                <span class="content"></span>
-            </div>
+            <div id="loader"><span><img src="images/loader.png" /></span></div>
             
-            <div id="elements" class="box">
-            </div>
+            <div id="popup"><p class="close" onclick="interact.closePopup();"><i class="fa fa-times"></i></p><span class="content"></span></div>
+            
+            <div id="elements" class="box"></div>
         </section>
         
         <script type="text/javascript">

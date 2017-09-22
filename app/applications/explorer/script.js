@@ -5,15 +5,33 @@ var interact =
         interact.refresh();
     },
     
+    showLoader: function()
+    {
+        var loader = $("#loader");
+        
+        loader.style.opacity = 1;
+        loader.style.transform = "scale(1)";
+    },
+    
+    hideLoader: function()
+    {
+        var loader = $("#loader");
+        
+        loader.style.opacity = 0;
+        loader.style.transform = "scale(0)";
+    },
+    
     refresh: function()
     {
+        interact.showLoader();
+        
         ajax({
             type: "POST",
             url: "../../core/router.php",
             async: true,
             params: "module=explorer&action=getCurrentDirectory",
             complete: function(xhr)
-            {
+            {                
                 $("#nav_area").innerHTML = xhr.responseText;
             }
         });
@@ -26,6 +44,8 @@ var interact =
             complete: function(xhr)
             {
                 $("#elements").innerHTML = xhr.responseText;
+                
+                interact.hideLoader();
             }
         });
     },
@@ -79,6 +99,18 @@ var interact =
             `;
         },
         
+        add_folder: function()
+        {
+            interact.openPopup();
+            
+            $("#popup span").innerHTML = `
+                <h1>Créer un nouveau dossier</h1>
+                <input type='text' placeholder='Nom de votre dossier...' />
+                <input type='button' value='Créer' onclick='interact.actionsAfterClick.add_folder();' /><br />
+                <p class='return'></p>
+            `;
+        },
+        
         selectElement: function(element)
         {
             if(element.classList.contains("selected"))
@@ -106,39 +138,76 @@ var interact =
             if(nb_files_selected + nb_folders_selected == 0)
             {
                 toolbar.innerHTML = `
-                    <span><img src='images/actions/add_file.png' onclick='interact.actionsOnClick.add_file();' /></span>
-                    <span><img src='images/actions/add_folder.png' onclick='interact.actionsOnClick.add_folder();' /></span>
-                    <span><img src='images/actions/paste.png' onclick='interact.actionsOnClick.paste();' /></span>
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
                 `;
             }
             
             if(nb_files_selected == 1 && nb_folders_selected == 0)
             {
-                
+                toolbar.innerHTML = `
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsAfterClick.open();'><img src='images/actions/open.png' /></span>
+                    <span onclick='interact.actionsOnClick.rename();'><img src='images/actions/rename.png' /></span>
+                    <span onclick='interact.actionsOnClick.delete();'><img src='images/actions/delete.png' /></span>
+                    <span onclick='interact.actionsAfterClick.copy();'><img src='images/actions/copy.png' /></span>
+                    <span onclick='interact.actionsAfterClick.cut();'><img src='images/actions/cut.png' /></span>
+                    <span onclick='interact.actionsAfterClick.download();'><img src='images/actions/download.png' /></span>
+                    <span onclick='interact.actionsAfterClick.pin();'><img src='images/actions/pin.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
+                `;
             }
             
             if(nb_files_selected > 1 && nb_folders_selected == 0)
             {
-                
+                toolbar.innerHTML = `
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsOnClick.delete();'><img src='images/actions/delete.png' /></span>
+                    <span onclick='interact.actionsAfterClick.copy();'><img src='images/actions/copy.png' /></span>
+                    <span onclick='interact.actionsAfterClick.cut();'><img src='images/actions/cut.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
+                `;
             }
             
             if(nb_files_selected == 0 && nb_folders_selected == 1)
             {
                 toolbar.innerHTML = `
-                    <span><img src='images/actions/add_file.png' onclick='interact.actionsOnClick.add_file();' /></span>
-                    <span><img src='images/actions/add_folder.png' onclick='interact.actionsOnClick.add_folder();' /></span>
-                    <span><img src='images/actions/open.png' onclick='interact.actionsAfterClick.open();' /></span>
-                    <span><img src='images/actions/rename.png' onclick='interact.actionsOnClick.rename();' /></span>
-                    <span><img src='images/actions/delete.png' onclick='interact.actionsOnClick.delete();' /></span>
-                    <span><img src='images/actions/copy.png' onclick='interact.actionsAfterClick.copy();' /></span>
-                    <span><img src='images/actions/cut.png' onclick='interact.actionsAfterClick.cut();' /></span>
-                    <span><img src='images/actions/paste.png' onclick='interact.actionsAfterClick.paste();' /></span>
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsAfterClick.open();'><img src='images/actions/open.png' /></span>
+                    <span onclick='interact.actionsOnClick.rename();'><img src='images/actions/rename.png' /></span>
+                    <span onclick='interact.actionsOnClick.delete();'><img src='images/actions/delete.png' /></span>
+                    <span onclick='interact.actionsAfterClick.copy();'><img src='images/actions/copy.png' /></span>
+                    <span onclick='interact.actionsAfterClick.cut();'><img src='images/actions/cut.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
                 `;
             }
             
             if(nb_files_selected == 0 && nb_folders_selected > 1)
             {
-                
+                toolbar.innerHTML = `
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsOnClick.delete();'><img src='images/actions/delete.png' /></span>
+                    <span onclick='interact.actionsAfterClick.copy();'><img src='images/actions/copy.png' /></span>
+                    <span onclick='interact.actionsAfterClick.cut();'><img src='images/actions/cut.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
+                `;
+            }
+            
+            if(nb_files_selected + nb_folders_selected >= 2)
+            {
+                toolbar.innerHTML = `
+                    <span onclick='interact.actionsOnClick.add_file();'><img src='images/actions/add_file.png' /></span>
+                    <span onclick='interact.actionsOnClick.add_folder();'><img src='images/actions/add_folder.png' /></span>
+                    <span onclick='interact.actionsOnClick.delete();'><img src='images/actions/delete.png' /></span>
+                    <span onclick='interact.actionsAfterClick.copy();'><img src='images/actions/copy.png' /></span>
+                    <span onclick='interact.actionsAfterClick.cut();'><img src='images/actions/cut.png' /></span>
+                    <span onclick='interact.actionsAfterClick.paste();'><img src='images/actions/paste.png' /></span>
+                `;
             }
         },
         
@@ -175,6 +244,56 @@ var interact =
                         interact.refresh();
                     }
                 });
+            });
+        },
+        
+        add_folder: function()
+        {
+            var name = $("#popup input")[0].value;
+            
+            ajax({
+                type: "POST",
+                url: "../../core/router.php",
+                async: true,
+                params: "module=explorer&action=add_folder&params=" + name,
+                complete: function(xhr)
+                {
+                    $("#popup .return").innerHTML = xhr.responseText;
+
+                    interact.refresh();
+                }
+            });
+        },
+        
+        openElement: function(element)
+        {
+            var nb_folders_selected = ($(".element-folder.selected") == null) ? 0 : document.querySelectorAll(".element-folder.selected").length;
+            var nb_files_selected = ($(".element-file.selected") == null) ? 0 : document.querySelectorAll(".element-file.selected").length;
+
+            if(element.classList.contains("element-folder"))
+            {
+                var token_folder = element.getAttribute("data-token");
+                
+                interact.actionsAfterClick.goFolder(token_folder);
+            }
+        
+            if(element.classList.contains("element-file"))
+            {
+                
+            }
+        },
+        
+        goFolder: function(token_folder)
+        {
+            ajax({
+                type: "POST",
+                url: "../../core/router.php",
+                async: true,
+                params: "module=explorer&action=go_folder&params=" + token_folder,
+                complete: function(xhr)
+                {
+                    interact.refresh();
+                }
             });
         }
     }

@@ -27,5 +27,19 @@
             
             self::Sub()::add_file($name, $content);
         }
+        
+        public static function add_folder($params)
+        {
+            $name = base64_decode($params);
+            
+            self::Sub()::add_folder($name);
+        }
+        
+        public static function go_folder($params)
+        {
+            $token = base64_decode($params);
+            
+            self::Sub()::go_folder($token);
+        }
     }
 ?>

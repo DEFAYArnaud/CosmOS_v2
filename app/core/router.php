@@ -26,6 +26,8 @@
             "explorer/getCurrentDirectory",
             "explorer/getElements",
             "explorer/add_file",
+            "explorer/add_folder",
+            "explorer/go_folder",
 		);
 		
 		$module = $_POST['module'];
