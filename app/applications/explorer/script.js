@@ -50,6 +50,21 @@ var interact =
         });
     },
     
+    popup:
+    {
+        triggerTransfertsPopup: function()
+        {
+            $("#popup_transferts").style.opacity = 1;
+            $("#popup_transferts").style.transform = "scale(1)";
+        },
+        
+        closePopupTransferts: function()
+        {
+            $("#popup_transferts").style.opacity = 0;
+            $("#popup_transferts").style.transform = "scale(0)";
+        }
+    },
+    
     openPopup: function()
     {
         var popup = $("#popup");
@@ -295,6 +310,142 @@ var interact =
                     interact.refresh();
                 }
             });
+        }
+    },
+    
+    upload:
+    {
+        files: [],
+        formData: [],
+        nb_files: 0,
+        completed_files: 0,
+        
+        get_formData: function()
+        {
+            return interact.upload.formData;
+        },
+        
+        appendFilesBeforeUpload: function()
+        {
+            var files = $("#popup_transferts #upload_files").files;
+            var list = $("#popup_transferts table");
+            
+            interact.upload.files = files;
+            
+            list.innerHTML = "";
+            
+            for(var i = 0; i < files.length; i++)
+            {
+                cmd(files[i].webkitRelativePath);
+                var tr = document.createElement("tr");
+                tr.id = btoa(unescape(encodeURIComponent(files[i].webkitRelativePath))).replace(/=/g, '');
+                tr.innerHTML = `
+                    <td>${files[i].webkitRelativePath}</td>
+                    <td>En attente...</td>
+                    <td style='cursor: pointer;' onclick='interact.upload.deleteFile("${btoa(unescape(encodeURIComponent(files[i].webkitRelativePath).replace(/=/g, '')))}");'>Supprimer</td>
+                `;
+                
+                list.appendChild(tr);
+            }
+        },
+        
+        deleteFile: function(b_name)
+        {
+            var list = $("#popup_transferts table");
+            
+            var files = interact.upload.files;
+            
+            for(let value of files)
+            {
+                if(b_name == btoa(unescape(encodeURIComponent(value["webkitRelativePath"]))).replace(/=/g, ''))
+                {
+                    list.removeChild($("#" + b_name));
+                }
+            }
+        },
+        
+        uploadFiles: function()
+        {
+            interact.upload.formData = new FormData();
+            
+            interact.upload.nb_files = interact.upload.files.length;
+            
+            for(let value of interact.upload.files)
+            {
+                if($("#"+btoa(unescape(encodeURIComponent(value["webkitRelativePath"]))).replace(/=/g, '')) != undefined)
+                {
+                    interact.upload.readFile(value);
+                }
+            }
+        },
+        
+        readFile: function(file)
+        {
+            $("#"+btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '') + " td")[1].innerHTML = "Lecture du fichier...";
+            
+            var reader = new FileReader();
+                    
+            var content_file = reader.readAsText(file);
+
+            reader.onloadend = function(e)
+            {
+                if(reader.readyState == 2)
+                {
+                    interact.upload.encryptFile(file, reader.result);
+                }
+            }
+        },
+        
+        encryptFile: function(file, content)
+        {
+            $("#"+btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '') + " td")[1].innerHTML = "Chiffrement du fichier...";
+            
+            openpgp.initWorker({ path:'../../public/js/openpgp.worker.js' });
+            openpgp.config.aead_protect = true;
+            
+            var pubKey = atob(localStorage.getItem("pbk"));
+            
+            var options = {
+                data: content,
+                publicKeys: openpgp.key.readArmored(pubKey).keys,
+            };
+
+            openpgp.encrypt(options).then(function(ciphertext) 
+            {
+                $("#"+btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '') + " td")[1].innerHTML = "Chiffrement terminé...";
+                
+                var encrypted = btoa(ciphertext.data);
+                
+                interact.upload.uploadIt(file, encrypted);
+            });
+        },
+        
+        uploadIt: function(file, encrypted_content)
+        {
+            $("#" + btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '') + " td")[1].innerHTML = "Début de l'upload...";
+            
+            var formData = new FormData();
+            
+            var blob = new Blob([encrypted_content], { type: "text/plain"});
+            
+            formData.append("file", blob, file["webkitRelativePath"]);
+            formData.append("tree", file["webkitRelativePath"]);
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "../../core/uploader.php", true);
+            xhr.send(formData);
+            
+            xhr.onprogress = function(e)
+            {
+                var progress = Math.round(e.loaded * 100 / e.total);
+                
+                $("#" + btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '') + " td")[1].innerHTML = "En cours d'upload...";
+                
+                if(progress == 100)
+                {
+                    $("#popup_transferts table").removeChild($("#" + btoa(unescape(encodeURIComponent(file["webkitRelativePath"]))).replace(/=/g, '')));   
+                }
+            }
         }
     }
 };

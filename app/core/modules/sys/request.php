@@ -49,7 +49,7 @@
         
         public static function getFilesInformations()
         {
-            $files = self::bdd()->_request("SELECT token,type FROM elements WHERE owner = ?", array(TOKEN));
+            $files = self::bdd()->_request("SELECT * FROM elements WHERE owner = ? AND NOT type = ?", array(TOKEN, "folder"));
             
             $informations = array(
                 "document" => 0,

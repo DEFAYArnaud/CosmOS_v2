@@ -56,7 +56,7 @@
                 $elements[] = $files[$i];
             }
             
-            $elements = array_chunk($elements, 6);
+            $elements = array_chunk($elements, 10);
             
             for($l = 0; $l < count($elements); $l++)
             {
@@ -75,7 +75,7 @@
         
         public static function add_file($name, $content)
         {
-            $return = self::bdd()->_request("SELECT * FROM elements WHERE name = ? AND tree = ? AND owner = ? AND type NOT IN ?", array($name, $_SESSION['explorer']['directory'], TOKEN, "folder"));
+            $return = self::bdd()->_request("SELECT * FROM elements WHERE name = ? AND tree = ? AND owner = ? AND NOT type = ?", array($name, $_SESSION['explorer']['directory'], TOKEN, "folder"));
                         
             if(count($return) == 0)
             {

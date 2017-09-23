@@ -115,9 +115,9 @@ section #toolbar #nav_area span
 
 section #toolbar #nav_area .dir
 {
-    width: 8vw;
+    width: 6vw;
     
-    font-size: 2.5vh;
+    font-size: 2vh;
     
     border-bottom: 3px solid #FF5722;
     
@@ -134,7 +134,7 @@ section #toolbar #nav_area .dir:hover
 
 section #toolbar #nav_area .sep
 {
-    width: 3vw;
+    width: 1.5vw;
 }
 
 section #toolbar #actions_area
@@ -155,7 +155,7 @@ section #toolbar #actions_area span
     
     text-align: center;
     
-    width: 5vw;
+    width: 6vh;
     
     cursor: pointer;
     
@@ -168,7 +168,7 @@ section #toolbar #actions_area span:hover
 
 section #toolbar #actions_area span img
 {
-    height: 5vh;
+    height: 3.5vh;
 }
 
 section #transferts_bubble
@@ -362,4 +362,108 @@ section #popup span input[type="button"]
     margin-left: 1vw;
     
     font-size: 2.5vh;
+}
+
+section #popup_transferts
+{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    
+    background: #e5e5e5;
+    
+    box-shadow: 0 0 3px inset black;
+    
+    border-radius: 5px;
+    
+    z-index: 99;
+    
+    transition: all 0.3s ease;
+    
+    opacity: 0;
+    transform: scale(0);
+}
+
+section #popup_transferts .close
+{
+    position: absolute;
+    top: 1vh;
+    right: 2vh;
+    
+    font-size: 3vh;
+    
+    margin: 0;
+    padding: 0;
+    
+    color: #F44336;
+    
+    cursor: pointer;
+}
+
+section #popup_transferts .files
+{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 90%;
+    height: 75%;
+    
+    overflow: auto;
+}
+
+section #popup_transferts .files table
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    margin: 0;
+    padding: 0;
+}
+
+section #popup_transferts .upload
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    
+    display: table;
+}
+
+section #popup_transferts .upload p
+{
+    display: table-cell;
+    vertical-align: middle;
+    
+    text-align: center;
+    
+    font-size: 2vh;
+}
+
+section #popup_transferts .upload p input[type="file"]
+{
+    display: none;
+}
+
+section #popup_transferts .upload p input[type="button"]
+{
+    border: none;
+    border-radius: 5px;
+    
+    width: 5vw;
+    height: 4vh;
+    
+    cursor: pointer;
+}
+
+section #popup_transferts .upload p label
+{
+    cursor: pointer;
+    
+    margin-right: 1vw;
 }

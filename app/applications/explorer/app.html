@@ -33,7 +33,11 @@
                 
             <div id="transferts_bubble" onclick="interact.popup.triggerTransfertsPopup();"><span><img src="images/transferts.png" /></span></div>
             
-            <div id="popup_transferts"></div>
+            <div id="popup_transferts">
+                <span class="upload"><p><label for="upload_files"><input type="file" id="upload_files" name="files[]" multiple webkitdirectory onchange="interact.upload.appendFilesBeforeUpload();" /><i class="fa fa-cloud-upload"></i> Charger des fichiers</label><input type="button" value="Charger" onclick="interact.upload.uploadFiles();" /></p></span>
+                <span class="files"><table></table></span>
+                <p class="close" onclick="interact.popup.closePopupTransferts();"><i class="fa fa-times"></i></p>
+            </div>
             
             <div id="loader"><span><img src="images/loader.png" /></span></div>
             
